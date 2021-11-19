@@ -1,1 +1,24 @@
 apply plugin: 'java'
+//runを実行するためにはこのpluginが必要
+apply plugin: 'application'
+
+//dependsOnはこのタスクの依存関係のモノ
+//doitが実行される前に依存関係のモノが実行される
+task doit(dependsOn: [compileJava, jar]){
+  doLast{
+    //println "*** compile now! ***"
+    //tasks.compileJava
+    println "*** create jar! ***"
+    tasks.jar.execute()
+  }
+}
+
+application {
+  mainClass = 'gradle.app.Library'
+}
+
+/*task docode(dependsOn: [jar, run]){
+  doLast{
+    println("** do code **")
+  }
+}*/
