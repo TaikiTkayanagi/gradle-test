@@ -2,6 +2,11 @@ apply plugin: 'java'
 //runを実行するためにはこのpluginが必要
 apply plugin: 'application'
 
+repositories{
+  mavenCentral()
+}
+
+
 //dependsOnはこのタスクの依存関係のモノ
 //doitが実行される前に依存関係のモノが実行される
 task doit(dependsOn: [compileJava, jar]){
@@ -17,8 +22,10 @@ application {
   mainClass = 'gradle.app.Library'
 }
 
-/*task docode(dependsOn: [jar, run]){
-  doLast{
-    println("** do code **")
-  }
-}*/
+task showVersion(){
+  println configurations
+}
+
+dependencies {
+  testCompile 'junit:junit:4.12'
+}

@@ -6,6 +6,9 @@
 * パラメータを渡す
 `gradle {task名} -P{プロパティ名=値}`
 
+# 注意点
+* lib内に、build.gradleがある場合、`./gradlew {タスク名}`で実行する
+
 # DSLとは
 * Domain Specific LAnguageの略
 * 特定の用途に限定された言語を示す
